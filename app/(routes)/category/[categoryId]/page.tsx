@@ -17,7 +17,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
   });
 
   const category = await getCategory(params.categoryId);
-
   return (
     <div className="bg-white">
       <Container>
