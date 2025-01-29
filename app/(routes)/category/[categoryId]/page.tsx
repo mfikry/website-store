@@ -5,7 +5,13 @@ import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-result";
 import ProductCard from "@/components/ui/product-card";
 
-const CategoryPage = async ({ params }: { params: { categoryId: string } }) => {
+interface CategoryPageProps {
+  params: {
+    categoryId: string;
+  };
+}
+
+const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
   const products = await getProducts({
     categoryId: params.categoryId,
   });
@@ -15,7 +21,7 @@ const CategoryPage = async ({ params }: { params: { categoryId: string } }) => {
   return (
     <div className="bg-white">
       <Container>
-        <Banner data={category?.banner} />
+        <Banner data={category.banner} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="mt-6 lg:col-span-4 lg:mt-0">
             {products.length === 0 && <NoResults />}
