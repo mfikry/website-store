@@ -7,4 +7,5 @@ const getCategory = async (id: string): Promise<Category> => {
 
   return res.json();
 };
+
 export default getCategory;
